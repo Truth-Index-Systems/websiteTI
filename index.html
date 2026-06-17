@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HandoverAI by Truth Index Systems</title>
+  <meta name="description" content="Never miss a moment during a shift again. Record shift events with voice notes, generate professional handovers, review, approve, email and archive." />
+  <link rel="icon" href="assets/icon.svg" />
+  <style>
+    :root{
+      --navy:#061426; --navy2:#0b1d34; --panel:#111f31; --panel2:#17263a;
+      --gold:#e8bd49; --gold2:#f6d884; --text:#fff; --muted:#b8d5ff; --line:#30435e;
+      --shadow:0 30px 90px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Arial,sans-serif;background:radial-gradient(circle at 20% 0%,#102746 0%,var(--navy) 38%,#030a13 100%);color:var(--text);line-height:1.5}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92vw);margin:0 auto}.nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0}.brand{display:flex;gap:14px;align-items:center}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--gold),var(--gold2));display:grid;place-items:center;color:#071426;font-weight:900;font-size:24px;box-shadow:0 18px 45px rgba(232,189,73,.24)}.brand h1{font-size:24px;margin:0;line-height:1}.brand p{margin:2px 0 0;color:var(--muted);font-size:14px}.cta{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#061426;padding:13px 20px;border-radius:16px;font-weight:900;box-shadow:0 18px 50px rgba(232,189,73,.18)}.ghost{border:1px solid rgba(232,189,73,.45);padding:12px 18px;border-radius:16px;color:#ffdc78;font-weight:800}.navlinks{display:flex;gap:12px;align-items:center}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center;padding:72px 0 70px}.eyebrow{letter-spacing:.22em;color:#ffd86d;font-weight:900;font-size:14px;text-transform:uppercase}.hero h2{font-size:clamp(44px,7vw,78px);line-height:.98;margin:18px 0 22px;letter-spacing:-.055em}.hero p{font-size:21px;color:var(--muted);max-width:640px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:32px}.chip{border:1px solid rgba(232,189,73,.35);background:rgba(232,189,73,.06);color:#ffe28d;border-radius:999px;padding:9px 13px;font-weight:800;font-size:14px}.phone{width:min(420px,100%);margin:auto;border-radius:42px;background:#071426;padding:14px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08)}.phone img{display:block;width:100%;border-radius:32px}.section{padding:70px 0}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.card{background:rgba(17,31,49,.86);border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:0 18px 60px rgba(0,0,0,.16)}.card h3{margin:0 0 12px;font-size:24px}.card p{color:var(--muted);margin:0}.split{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}.mock{background:#071426;border:1px solid var(--line);border-radius:32px;padding:18px;box-shadow:var(--shadow)}.mock img{width:100%;display:block;border-radius:24px}.title{font-size:clamp(34px,5vw,54px);line-height:1.05;margin:0 0 16px;letter-spacing:-.04em}.lead{font-size:20px;color:var(--muted);max-width:800px}.steps{counter-reset:step;display:grid;gap:14px;margin-top:22px}.step{background:rgba(23,38,58,.75);border:1px solid var(--line);border-radius:20px;padding:18px 20px;color:#dbeaff}.step strong{color:white}.beta{background:linear-gradient(135deg,rgba(232,189,73,.16),rgba(11,29,52,.9));border:1px solid rgba(232,189,73,.45);border-radius:34px;padding:40px;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}.beta h2{margin:0 0 10px;font-size:38px}.beta p{margin:0;color:var(--muted);font-size:19px}.footer{padding:42px 0 60px;color:#8fb0d8;border-top:1px solid rgba(255,255,255,.08)}.mini{font-size:13px;color:#8fb0d8;margin-top:20px}@media(max-width:900px){.hero,.split,.beta{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.nav{align-items:flex-start}.navlinks{display:none}.hero{padding-top:38px}.beta{padding:28px}.cta,.ghost{display:inline-block}.phone{max-width:360px}.section{padding:48px 0}}
+  </style>
+</head>
+<body>
+  <header class="wrap nav">
+    <a class="brand" href="#top" aria-label="HandoverAI home">
+      <div class="logo">H</div><div><h1>HandoverAI</h1><p>by Truth Index Systems</p></div>
+    </a>
+    <div class="navlinks"><a href="#how" class="ghost">How it works</a><a href="https://handover-ai-beta.vercel.app/" class="cta">Sign up for beta</a></div>
+  </header>
+  <main id="top">
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">Operational handovers</div>
+        <h2>Never miss a moment during a shift again.</h2>
+        <p>Record events as they happen using quick voice notes. HandoverAI turns them into a professional handover that can be reviewed, approved, emailed and archived.</p>
+        <div class="actions"><a class="cta" href="https://handover-ai-beta.vercel.app/">Start free beta</a><a class="ghost" href="#homescreen">Add to Home Screen</a></div>
+        <div class="chips"><span class="chip">Voice notes</span><span class="chip">PDF archive</span><span class="chip">Email approval</span><span class="chip">Shift teams</span></div>
+      </div>
+      <div class="phone"><img src="assets/app-screen.svg" alt="Recreated HandoverAI mobile app screen showing section selection and voice note capture" /></div>
+    </section>
+    <section class="wrap section">
+      <div class="grid3">
+        <div class="card"><h3>Capture events instantly</h3><p>Select a section, speak naturally, and save the note in seconds. No end-of-shift memory test.</p></div>
+        <div class="card"><h3>Review before sending</h3><p>AI prepares the handover, but the supervisor edits, reviews and approves before anything is sent.</p></div>
+        <div class="card"><h3>Audit-ready archive</h3><p>Approved handovers are sent by email, attached as PDF and stored for later review.</p></div>
+      </div>
+    </section>
+    <section id="how" class="wrap section split">
+      <div>
+        <h2 class="title">Built for shift-based teams.</h2>
+        <p class="lead">Manufacturing, warehousing, logistics, care, security, facilities and maintenance teams all face the same problem: important information gets lost between shifts.</p>
+        <div class="steps">
+          <div class="step"><strong>1. Record</strong> events during the shift as short voice notes.</div>
+          <div class="step"><strong>2. Generate</strong> a structured handover grouped by your sections.</div>
+          <div class="step"><strong>3. Approve</strong> the handover, then email and archive the PDF.</div>
+        </div>
+      </div>
+      <div class="mock"><img src="assets/pdf-preview.svg" alt="Recreated professional handover PDF preview" /></div>
+    </section>
+    <section id="homescreen" class="wrap section split">
+      <div class="mock"><img src="assets/add-to-home.svg" alt="Add HandoverAI to home screen instructions" /></div>
+      <div>
+        <h2 class="title">Works like a phone app.</h2>
+        <p class="lead">No app store required for beta. Open HandoverAI in your mobile browser and add it to your home screen for quick shift access.</p>
+        <div class="steps">
+          <div class="step"><strong>iPhone:</strong> Open in Safari → Share → Add to Home Screen.</div>
+          <div class="step"><strong>Android:</strong> Open in Chrome → Menu → Add to Home Screen.</div>
+        </div>
+      </div>
+    </section>
+    <section class="wrap section">
+      <div class="beta">
+        <div><div class="eyebrow">Beta programme</div><h2>Free during beta. Not free forever.</h2><p>Help shape HandoverAI with real feedback and bug reports. Early beta organisations receive a 20% lifetime discount when paid plans launch.</p></div>
+        <a class="cta" href="https://handover-ai-beta.vercel.app/">Sign up now</a>
+      </div>
+      <p class="mini">HandoverAI is currently in beta. Please avoid entering sensitive personal data unless authorised by your organisation.</p>
+    </section>
+  </main>
+  <footer class="wrap footer">© 2026 Truth Index Systems · HandoverAI</footer>
+</body>
+</html>

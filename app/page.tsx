@@ -83,8 +83,38 @@ export default function Home() {
 
     <section className="section why"><div className="section-kicker">07 / OUR STANDARD</div><div className="why-grid"><div className="why-intro"><h2>Authority in<br/><em className="accent">engineering.</em></h2><p>We do not need to shout. The work should speak clearly enough.</p></div>{[["Engineering first","Architecture and implementation decisions are made for the problem, not for the trend."],["Built on truth","Evidence before assumption. Explanation before exaggeration."],["Production ready","Reliability, recoverability and clarity matter as much as the demonstration."],["Long-term thinking","We build foundations that can evolve rather than disposable prototypes."]].map(([title,desc])=><article key={title}><h3>{title}</h3><p>{desc}</p></article>)}</div></section>
 
-    <section className="final-cta" id="contact"><div className="contact-pill"><a href="mailto:jaspal.sanghera@truthindexsystems.co.uk"><span className="contact-icon">✉</span><span className="contact-email">jaspal.sanghera@truthindexsystems.co.uk</span></a></div>
-<div className="section-kicker centered">08 / START A CONVERSATION</div><h2>Let&apos;s build something<br/><em className="accent">exceptional.</em></h2><p>Tell us what needs to exist. We&apos;ll help work out how it should be engineered.</p><a className="btn primary" href="mailto:jaspal.sanghera@truthindexsystems.co.uk">Start a conversation</a><small>jaspal.sanghera@truthindexsystems.co.uk</small></section>
+    <section className="final-cta" id="contact">
+  <div className="section-kicker centered">
+    08 / START A CONVERSATION
+  </div>
+
+  <h2>
+    Let&apos;s build something
+    <br />
+    <em className="accent">exceptional.</em>
+  </h2>
+
+  <p>
+    Tell us what needs to exist. We&apos;ll help work out how it should be
+    engineered.
+  </p>
+
+  <a
+    className="btn primary"
+    href="mailto:jaspal.sanghera@truthindexsystems.co.uk"
+  >
+    Start a conversation
+  </a>
+
+  <div className="contact-pill">
+    <a href="mailto:jaspal.sanghera@truthindexsystems.co.uk">
+      <span className="contact-icon">✉</span>
+      <span className="contact-email">
+        jaspal.sanghera@truthindexsystems.co.uk
+      </span>
+    </a>
+  </div>
+</section>
 
     <footer><div className="footer-brand"><span className="brand-mark"><Mark size={28}/></span><div><strong>TRUTH INDEX SYSTEMS</strong><span>Engineering Intelligent Software.</span></div></div><div className="footer-links"><div><strong>Technology</strong><a href="#technology">Genesis T8™</a><a href="#technology">CIE v1.0</a></div><div><strong>Product</strong><a href="https://www.marketroute.co.uk">MarketRoute</a></div><div><strong>Solutions</strong><a href="#solutions">Engineering Solutions</a><a href="#solutions">AI &amp; Software Platforms</a></div><div><strong>Contact</strong><a href="mailto:jaspal.sanghera@truthindexsystems.co.uk">jaspal.sanghera@truthindexsystems.co.uk</a></div></div><div className="footer-bottom"><span>© 2026 Truth Index Systems</span><span>Built on Truth.</span></div></footer>
   </main>;

@@ -157,10 +157,38 @@ function Header() {
 }
 
 function SectionLabel({ index, children }: { index: string; children?: ReactNode }) {
-  return <div className="section-label"><span>{index}</span><b>{children}</b><i /></div>;
+  return <div className="section-label" data-reveal><span>{index}</span><b>{children}</b><i /></div>;
+}
+
+function useRevealMotion() {
+  useEffect(() => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const nodes = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      nodes.forEach((node) => node.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -9% 0px", threshold: 0.08 },
+    );
+
+    nodes.forEach((node) => observer.observe(node));
+    return () => observer.disconnect();
+  }, []);
 }
 
 export default function Home() {
+  useRevealMotion();
+
   return (
     <main>
       <a className="skip-link" href="#main-content">Skip to content</a>
@@ -170,7 +198,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-ambient" aria-hidden="true" />
-        <div className="hero-content" id="main-content">
+        <div className="hero-content" id="main-content" data-reveal>
           <p className="overline">TRUTH INDEX SYSTEMS <span>／</span> SOFTWARE ENGINEERING</p>
           <h1>Engineering<br /><em>Intelligent</em> Software.</h1>
           <div className="hero-bottom">
@@ -181,7 +209,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="hero-index" aria-label="Truth Index Systems focus areas">
+        <div className="hero-index" aria-label="Truth Index Systems focus areas" data-reveal>
           <div><span>01</span><b>Technology</b><small>Genesis T8</small></div>
           <div><span>02</span><b>Product</b><small>MarketRoute</small></div>
           <div><span>03</span><b>Solutions</b><small>Software Engineering</small></div>
@@ -191,14 +219,14 @@ export default function Home() {
 
       <section className="section principle" id="principle">
         <SectionLabel index="01">PRINCIPLE</SectionLabel>
-        <div className="editorial-split">
+        <div className="editorial-split" data-reveal>
           <h2>Built on<br />Truth.</h2>
           <div className="editorial-copy">
             <p className="statement">Great software begins with understanding reality.</p>
             <p>We engineer systems around evidence, structured reasoning and dependable software — not hype, black-box claims or unnecessary complexity.</p>
           </div>
         </div>
-        <div className="principle-rail">
+        <div className="principle-rail" data-reveal>
           {principles.map(([title, copy], index) => (
             <article key={title}>
               <span>0{index + 1}</span>
@@ -210,7 +238,7 @@ export default function Home() {
 
       <section className="section genesis" id="technology">
         <SectionLabel index="02">PROPRIETARY TECHNOLOGY</SectionLabel>
-        <div className="genesis-stage">
+        <div className="genesis-stage" data-reveal>
           <div className="genesis-visual" aria-hidden="true">
             <div className="orbit orbit-one" />
             <div className="orbit orbit-two" />
@@ -235,14 +263,14 @@ export default function Home() {
 
       <section className="section cie" id="cie">
         <SectionLabel index="03">COMMERCIAL INTELLIGENCE ENGINE</SectionLabel>
-        <div className="cie-intro">
+        <div className="cie-intro" data-reveal>
           <div>
             <div className="tech-lockup cie-lockup"><CieMark size={34} /><span>CIE <b>v1.0</b></span></div>
             <h2>Commercial <em>intelligence</em>,<br />engineered.</h2>
           </div>
           <p>The Commercial Intelligence Engine is the first production intelligence engine built on Genesis T8, transforming structured reasoning into practical commercial intelligence.</p>
         </div>
-        <div className="capability-system">
+        <div className="capability-system" data-reveal>
           <div className="capability-axis" aria-hidden="true"><span>INPUT</span><i /><span>REASONING</span><i /><span>OUTPUT</span></div>
           <div className="capability-list">
             {capabilities.map(([title, copy], index) => (
@@ -259,7 +287,7 @@ export default function Home() {
 
       <section className="section product" id="product">
         <SectionLabel index="04">FLAGSHIP PRODUCT</SectionLabel>
-        <div className="market-frame">
+        <div className="market-frame" data-reveal>
           <div className="market-copy">
             <div className="market-lockup"><MarketRouteMark size={50} /><span>Market<b>Route</b></span></div>
             <p className="product-meta">POWERED BY GENESIS T8™ <i /> COMMERCIAL INTELLIGENCE</p>
@@ -274,6 +302,7 @@ export default function Home() {
             <div className="route-label route-label-c">OPPORTUNITY</div>
             <div className="route-node rn1" /><div className="route-node rn2" /><div className="route-node rn3" /><div className="route-node rn4" /><div className="route-node rn5" />
             <svg viewBox="0 0 560 470" preserveAspectRatio="none">
+              <path className="route-draw" pathLength="1" d="M58 365 C164 315, 190 128, 315 168 S426 306,505 86" />
               <path d="M58 365 C164 315, 190 128, 315 168 S426 306,505 86" />
               <path className="route-soft" d="M42 160 C172 205, 242 385, 517 328" />
             </svg>
@@ -283,14 +312,14 @@ export default function Home() {
 
       <section className="section solutions" id="solutions">
         <SectionLabel index="05">ENGINEERING SOLUTIONS</SectionLabel>
-        <div className="solutions-head">
+        <div className="solutions-head" data-reveal>
           <div>
             <h2>Every business has<br />unique <em>challenges.</em></h2>
             <h3>We engineer the <em>solution.</em></h3>
           </div>
           <p>Every organisation is different. We design and engineer software around your operations, objectives and future growth rather than forcing your business to adapt to generic tools.</p>
         </div>
-        <div className="solution-matrix">
+        <div className="solution-matrix" data-reveal>
           {solutions.map(([title, copy], index) => (
             <article key={title}>
               <div className="solution-top"><span>0{index + 1}</span><i /></div>
@@ -303,11 +332,11 @@ export default function Home() {
 
       <section className="section process" id="process">
         <SectionLabel index="06">HOW WE WORK</SectionLabel>
-        <div className="process-head">
+        <div className="process-head" data-reveal>
           <h2>From problem<br />to <em>production.</em></h2>
           <p>Good engineering starts before implementation. We work from the business problem outward, then build the smallest system that solves it properly.</p>
         </div>
-        <ol className="process-track">
+        <ol className="process-track" data-reveal>
           {process.map((item, index) => (
             <li key={item}><span>0{index + 1}</span><i /><b>{item}</b></li>
           ))}
@@ -316,7 +345,7 @@ export default function Home() {
 
       <section className="section standard">
         <SectionLabel index="07">OUR STANDARD</SectionLabel>
-        <div className="standard-grid">
+        <div className="standard-grid" data-reveal>
           <div className="standard-statement">
             <h2>Authority in<br /><em>engineering.</em></h2>
             <p>We do not need to shout. The work should speak clearly enough.</p>
@@ -329,12 +358,14 @@ export default function Home() {
       </section>
 
       <section className="contact" id="contact">
-        <div className="contact-orbit" aria-hidden="true"><span><Mark size={82} /></span></div>
+        <div className="contact-orbit" aria-hidden="true" data-reveal><span><Mark size={82} /></span></div>
         <SectionLabel index="08">START A CONVERSATION</SectionLabel>
-        <h2>Let&apos;s build something<br /><em>exceptional.</em></h2>
-        <p>Tell us what needs to exist. We&apos;ll help work out how it should be engineered.</p>
-        <a className="button button-light" href={`mailto:${EMAIL}`}>Start a conversation <span>↗</span></a>
-        <a className="contact-pill" href={`mailto:${EMAIL}`}><span>✉</span>{EMAIL}</a>
+        <div className="contact-content" data-reveal>
+          <h2>Let&apos;s build something<br /><em>exceptional.</em></h2>
+          <p>Tell us what needs to exist. We&apos;ll help work out how it should be engineered.</p>
+          <a className="button button-light" href={`mailto:${EMAIL}`}>Start a conversation <span>↗</span></a>
+          <a className="contact-pill" href={`mailto:${EMAIL}`}><span>✉</span>{EMAIL}</a>
+        </div>
       </section>
 
       <footer>

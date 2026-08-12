@@ -194,7 +194,7 @@ h2 em,h1 em{color:var(--red-hot);font-style:normal;font-weight:inherit}
 /* CONTACT */
 .contact{position:relative;min-height:88svh;padding:150px var(--page);border-top:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden;background:#070707}
 .contact:before{content:"";position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(142,16,28,.10),transparent 66%);top:50%;left:50%;transform:translate(-50%,-48%)}
-.contact>*{position:relative;z-index:2}.contact .section-label{width:100%;margin-bottom:55px}.contact .section-label i{opacity:.5}.contact h2{font-size:clamp(64px,8.2vw,126px);max-width:1200px}.contact>p{font-size:17px;line-height:1.7;color:#aaa59d;max-width:650px;margin:34px 0 29px}.contact-orbit{width:126px;height:126px;border:1px solid rgba(181,29,45,.17);border-radius:50%;display:grid;place-items:center;margin-bottom:36px}.contact-orbit span{color:var(--red-hot);display:flex}
+.contact>*{position:relative;z-index:2}.contact .section-label{width:100%;margin-bottom:55px}.contact .section-label i{opacity:.5}.contact-orbit{width:126px;height:126px;border:1px solid rgba(181,29,45,.17);border-radius:50%;display:grid;place-items:center;margin-bottom:36px}.contact-orbit span{color:var(--red-hot);display:flex}
 .contact-pill{margin-top:22px;display:inline-flex;align-items:center;gap:10px;max-width:100%;padding:11px 18px;border:1px solid rgba(181,29,45,.54);border-radius:999px;background:rgba(181,29,45,.065);color:#d7d2c8;font-size:11px;overflow-wrap:anywhere;transition:.25s}.contact-pill span{color:var(--red-hot)}.contact-pill:hover{transform:translateY(-2px);border-color:rgba(181,29,45,.9);background:rgba(181,29,45,.11)}
 
 /* FOOTER */
@@ -222,7 +222,7 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--red-hot);outline-of
   .solutions-head h2{font-size:clamp(51px,14vw,76px)}.solutions-head h3{font-size:32px;margin:35px 0 0}.solutions-head>p{font-size:16px}.solution-matrix{grid-template-columns:1fr;margin-top:65px}.solution-matrix article{grid-column:auto!important;min-height:205px}.solution-matrix h3{margin-top:55px}
   .process-head p{font-size:16px}.process-track{grid-template-columns:1fr 1fr;gap:35px 0;margin-top:75px}.process-track li{min-height:82px}
   .standard-grid{grid-template-columns:1fr}.standard-statement{grid-column:auto;min-height:360px!important}.standard-grid>*{min-height:215px}.standard-grid article h3{margin-top:auto}
-  .contact{padding:100px var(--page);min-height:82svh}.contact-orbit{width:105px;height:105px}.contact .section-label{margin-bottom:42px}.contact h2{font-size:clamp(53px,14vw,78px)}.contact>p{font-size:16px}.contact-pill{width:min(100%,430px);justify-content:center;border-radius:20px;font-size:10px;padding:12px 15px;word-break:break-word}
+  .contact{padding:100px var(--page);min-height:82svh}.contact-orbit{width:105px;height:105px}.contact .section-label{margin-bottom:42px}.contact-pill{width:min(100%,430px);justify-content:center;border-radius:20px;font-size:10px;padding:12px 15px;word-break:break-word}
   footer{padding:55px var(--page) 26px}.footer-nav{grid-template-columns:1fr 1fr;gap:36px 25px}.footer-bottom{grid-template-columns:1fr;gap:13px}.footer-bottom a{justify-self:start;overflow-wrap:anywhere}.footer-bottom span:nth-child(2){order:-1}
 }
 
@@ -230,58 +230,124 @@ a:focus-visible,button:focus-visible{outline:1px solid var(--red-hot);outline-of
   *{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .intro{display:none}
 }
-/* Final Contact Pill */
-.contact-pill{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  margin-top:24px;
-  padding:14px 22px;
-  max-width:min(100%,560px);
-  border:1px solid rgba(186,28,43,.65);
-  border-radius:999px;
-  background:rgba(186,28,43,.08);
-  backdrop-filter:blur(8px);
-  transition:all .25s ease;
+
+
+/* ============================================================
+   FINAL FREEZE — ATMOSPHERE, MOTION & INTERACTION
+   Deliberately restrained: depth without visual noise.
+   ============================================================ */
+
+/* More deliberate whitespace on large screens. */
+@media (min-width:1101px){
+  :root{--section:172px}
+  .hero{padding-top:172px;padding-bottom:52px}
+  .section-label{margin-bottom:88px}
+  .genesis-stage{min-height:680px}
+  .contact{padding-top:172px;padding-bottom:172px}
 }
 
-.contact-pill:hover{
-  transform:translateY(-2px);
-  background:rgba(186,28,43,.14);
-  border-color:rgba(186,28,43,.9);
+/* Scroll reveal: small movement, low drama. */
+[data-reveal]{opacity:0;transform:translateY(20px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+[data-reveal].is-visible{opacity:1;transform:none}
+.section-label[data-reveal]{transform:translateY(8px)}
+.section-label[data-reveal] i{transform:scaleX(0);transform-origin:left center;transition:transform 1s cubic-bezier(.2,.7,.2,1) .12s}
+.section-label[data-reveal].is-visible i{transform:scaleX(1)}
+
+/* Editorial depth — almost-black light, not decorative gradients. */
+.principle:after,.cie:after,.solutions:after,.process:after,.standard:after{
+  content:"";position:absolute;pointer-events:none;z-index:0;width:70vw;height:70vw;border-radius:50%;filter:blur(10px);opacity:.38
+}
+.principle:after{right:-46vw;top:-18vw;background:radial-gradient(circle,rgba(181,29,45,.055),transparent 67%)}
+.cie:after{left:-48vw;top:18%;background:radial-gradient(circle,rgba(255,255,255,.022),transparent 66%)}
+.solutions:after{right:-50vw;top:16%;background:radial-gradient(circle,rgba(181,29,45,.045),transparent 67%)}
+.process:after{left:-48vw;bottom:-35vw;background:radial-gradient(circle,rgba(181,29,45,.04),transparent 65%)}
+.standard:after{right:-46vw;bottom:-30vw;background:radial-gradient(circle,rgba(255,255,255,.018),transparent 66%)}
+.principle>*,.cie>*,.solutions>*,.process>*,.standard>*{position:relative;z-index:1}
+
+/* Hero grid behaves like a system signal, not a looping animation spectacle. */
+.hero-grid{animation:grid-signal 20s ease-in-out infinite}
+@keyframes grid-signal{
+  0%,84%,100%{opacity:1}
+  89%{opacity:.72}
+  94%{opacity:1}
+}
+.hero-ambient{animation:ambient-breathe 18s ease-in-out infinite}
+@keyframes ambient-breathe{0%,100%{opacity:.78;transform:scale(1)}50%{opacity:1;transform:scale(1.025)}}
+
+/* Genesis: the engine feels alive, but never busy. */
+.orbit-three{animation:outer-orbit-breathe 16s ease-in-out infinite}
+@keyframes outer-orbit-breathe{0%,100%{opacity:.55;transform:scale(1)}50%{opacity:.95;transform:scale(1.012)}}
+.genesis-emblem{animation:engine-pulse 14s ease-in-out infinite}
+@keyframes engine-pulse{
+  0%,72%,100%{box-shadow:inset 0 0 70px rgba(142,16,28,.11),0 0 80px rgba(142,16,28,.07)}
+  82%{box-shadow:inset 0 0 78px rgba(142,16,28,.16),0 0 100px rgba(142,16,28,.12)}
 }
 
-.contact-pill a{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  width:100%;
-  color:#F2EEE6;
-  text-decoration:none;
+/* MarketRoute: draw the route once on entry, then let the existing flow take over. */
+.route-stage path.route-draw{
+  stroke:var(--blue-soft);stroke-width:2.6;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;filter:drop-shadow(0 0 10px rgba(47,140,255,.55));animation:none
 }
+.market-frame.is-visible .route-stage path.route-draw{animation:route-intro 1.7s cubic-bezier(.2,.7,.2,1) .12s forwards}
+.market-frame .route-stage svg>path:not(.route-draw){opacity:0}
+.market-frame.is-visible .route-stage svg>path:not(.route-draw){animation-name:route-reveal,route-dash;animation-duration:.45s,12s;animation-delay:1.42s,1.7s;animation-timing-function:ease,linear;animation-fill-mode:forwards;animation-iteration-count:1,infinite}
+.market-frame.is-visible .route-stage svg>path.route-soft{animation-duration:.45s,18s}
+@keyframes route-intro{0%{stroke-dashoffset:1;opacity:0}12%{opacity:1}82%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes route-reveal{to{opacity:1}}
+.route-grid{animation:market-grid-signal 20s ease-in-out infinite}
+@keyframes market-grid-signal{0%,86%,100%{opacity:1}91%{opacity:.72}}
+.route-node{animation:node-breathe 7s ease-in-out infinite}
+.route-node:nth-of-type(odd){animation-delay:-2.1s}
+@keyframes node-breathe{0%,100%{transform:scale(1);filter:brightness(1)}50%{transform:scale(1.08);filter:brightness(1.15)}}
 
-.contact-icon{
-  color:var(--red-bright);
-  flex-shrink:0;
-}
+/* Precision hover language. */
+@media (hover:hover) and (pointer:fine){
+  .button span,.text-link span{transition:transform .22s ease}
+  .button:hover span,.text-link:hover span{transform:translate(2px,2px)}
 
-.contact-email{
-  font-size:.92rem;
-  line-height:1.5;
-  overflow-wrap:anywhere;
-  word-break:break-word;
-  text-align:center;
-}
-
-@media (max-width:640px){
-  .contact-pill{
-    width:min(100%,420px);
-    border-radius:22px;
-    padding:14px 18px;
+  .principle-rail article,
+  .capability-list article,
+  .solution-matrix article,
+  .standard-grid article{
+    will-change:transform;
+    transition:transform .28s cubic-bezier(.2,.7,.2,1),background .28s,border-color .28s,box-shadow .28s
   }
-
-  .contact-email{
-    font-size:.88rem;
+  .principle-rail article:hover{transform:translateX(5px)}
+  .capability-list article:hover,
+  .solution-matrix article:hover,
+  .standard-grid article:hover{
+    transform:translateY(-4px);
+    border-color:rgba(243,239,231,.15);
+    box-shadow:0 20px 46px rgba(0,0,0,.12)
   }
+  .standard-grid article:hover{background:rgba(255,255,255,.012)}
+  .market-frame{transition:border-color .3s,box-shadow .3s}
+  .market-frame:hover{border-color:rgba(47,140,255,.22);box-shadow:0 30px 90px rgba(0,0,0,.18),0 0 0 1px rgba(47,140,255,.025)}
+  .contact-orbit{transition:border-color .3s,transform .3s,box-shadow .3s}
+  .contact-orbit:hover{transform:scale(1.025);border-color:rgba(181,29,45,.34);box-shadow:0 0 70px rgba(142,16,28,.09)}
+}
+
+/* Contact content is one compositional unit. */
+.contact-content{display:flex;flex-direction:column;align-items:center;text-align:center}
+.contact-content>p{font-size:17px;line-height:1.7;color:#aaa59d;max-width:650px;margin:34px 0 29px}
+.contact-content h2{font-size:clamp(64px,8.2vw,126px);max-width:1200px}
+
+/* Stagger repeated systems after their parent enters view. */
+.principle-rail.is-visible article:nth-child(1),.capability-system.is-visible article:nth-child(1),.solution-matrix.is-visible article:nth-child(1){transition-delay:.03s}
+.principle-rail.is-visible article:nth-child(2),.capability-system.is-visible article:nth-child(2),.solution-matrix.is-visible article:nth-child(2){transition-delay:.06s}
+.principle-rail.is-visible article:nth-child(3),.capability-system.is-visible article:nth-child(3),.solution-matrix.is-visible article:nth-child(3){transition-delay:.09s}
+.principle-rail.is-visible article:nth-child(4),.capability-system.is-visible article:nth-child(4),.solution-matrix.is-visible article:nth-child(4){transition-delay:.12s}
+.capability-system.is-visible article:nth-child(5),.solution-matrix.is-visible article:nth-child(5){transition-delay:.15s}
+.capability-system.is-visible article:nth-child(6),.solution-matrix.is-visible article:nth-child(6){transition-delay:.18s}
+
+@media(max-width:700px){
+  .contact-content h2{font-size:clamp(53px,14vw,78px)}
+  .contact-content>p{font-size:16px}
+  [data-reveal]{transform:translateY(14px)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  [data-reveal]{opacity:1!important;transform:none!important}
+  .hero-grid,.hero-ambient,.orbit-three,.genesis-emblem,.route-grid,.route-node{animation:none!important}
+  .market-frame .route-stage svg>path{opacity:1!important;animation:none!important}
+  .route-stage path.route-draw{display:none}
 }

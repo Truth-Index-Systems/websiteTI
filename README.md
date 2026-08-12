@@ -1,6 +1,25 @@
-# Truth Index Systems — Website v1.0
+# Truth Index Systems — Website v2.0
 
-Flagship Next.js homepage for Truth Index Systems.
+Flagship public website for Truth Index Systems.
+
+## Design intent
+
+Quiet authority. Engineering discipline. High information clarity. The site deliberately avoids fake metrics, stock imagery, AI clichés and inflated claims.
+
+## Major v2 changes
+
+- Rebuilt page composition to reduce the repeated "equal card grid" feel.
+- Intro now appears only once per browser session and can be skipped.
+- Added a real mobile navigation rather than hiding navigation entirely.
+- Genesis T8 is presented as a distinct proprietary technology stage.
+- CIE uses a system-oriented capability layout instead of generic cards.
+- Preserved and refined the MarketRoute animated route visual.
+- Engineering Solutions uses an asymmetric capability matrix.
+- Added responsive contact pill for the full business email address.
+- Removed all legacy portfolio styling and obsolete public examples.
+- Added canonical metadata, Open Graph metadata, robots and sitemap routes.
+- Added keyboard focus states, skip link and reduced-motion handling.
+- Refactored the page and CSS into maintainable, readable source.
 
 ## Run locally
 
@@ -9,48 +28,13 @@ npm install
 npm run dev
 ```
 
-## Production
+## Production check
 
 ```bash
 npm run build
-npm start
 ```
 
-## Notes
+## Public links
 
-- Dependencies are pinned to Next.js 16.2.11 (Active LTS security release) and React 19.2.7.
-
-- MarketRoute links to https://www.marketroute.co.uk
-- HandoverAI is presented as an Engineering Solutions example and links to https://www.handoverai.co.uk
-- No client names are published on the site.
-- Connect the final business contact destination before production launch.
-- Brand mark is an inline SVG, so the build has no external image dependency.
-
-
-## Build 3 — Legibility & Brand Marks
-
-- Increased body-copy contrast and reading size while preserving the existing copy.
-- Added dedicated Genesis T8, CIE v1.0 and MarketRoute marks.
-- Preserved the MarketRoute animated route visual.
-- Removed HandoverAI and all named engineering examples from the public site.
-- Engineering Solutions now presents capabilities only until a stronger case-study portfolio exists.
-
-
-## Final Polish / Freeze Candidate
-- Crimson emphasis added only to the key word in each major statement.
-- Hero emphasis is **Intelligent**.
-- Engineering Solutions heading/subheading spacing refined.
-- Existing architecture and MarketRoute animation preserved.
-
-
-## v1.0 Favicon Integration
-- Truth Index Systems favicon assets are included in `/public`.
-- Next.js metadata is configured for ICO, SVG, 16px, 32px and Apple touch icons.
-- Web app manifest is configured.
-- No manual favicon integration is required after deployment.
-
-
-## Contact
-- Primary business contact: jaspal.sanghera@truthindexsystems.co.uk
-- Final CTA opens a new email to this address.
-- Footer contact link is included.
+- MarketRoute: https://www.marketroute.co.uk
+- Contact: jaspal.sanghera@truthindexsystems.co.uk

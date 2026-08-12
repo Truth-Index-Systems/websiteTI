@@ -3,7 +3,18 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Truth Index Systems — Engineering Intelligent Software",
-  description: "Truth Index Systems engineers intelligent software, proprietary technologies and bespoke business systems. Built on Truth.",
+  description:
+    "Truth Index Systems engineers intelligent software, proprietary technologies and engineering solutions. Built on Truth.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

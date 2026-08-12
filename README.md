@@ -41,3 +41,10 @@ npm start
 - Hero emphasis is **Intelligent**.
 - Engineering Solutions heading/subheading spacing refined.
 - Existing architecture and MarketRoute animation preserved.
+
+
+## v1.0 Favicon Integration
+- Truth Index Systems favicon assets are included in `/public`.
+- Next.js metadata is configured for ICO, SVG, 16px, 32px and Apple touch icons.
+- Web app manifest is configured.
+- No manual favicon integration is required after deployment.

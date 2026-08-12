@@ -193,3 +193,58 @@
     font-size:clamp(28px,8vw,40px);
   }
 }
+/* Final Contact Pill */
+.contact-pill{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:24px;
+  padding:14px 22px;
+  max-width:min(100%,560px);
+  border:1px solid rgba(186,28,43,.65);
+  border-radius:999px;
+  background:rgba(186,28,43,.08);
+  backdrop-filter:blur(8px);
+  transition:all .25s ease;
+}
+
+.contact-pill:hover{
+  transform:translateY(-2px);
+  background:rgba(186,28,43,.14);
+  border-color:rgba(186,28,43,.9);
+}
+
+.contact-pill a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  color:#F2EEE6;
+  text-decoration:none;
+}
+
+.contact-icon{
+  color:var(--red-bright);
+  flex-shrink:0;
+}
+
+.contact-email{
+  font-size:.92rem;
+  line-height:1.5;
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  text-align:center;
+}
+
+@media (max-width:640px){
+  .contact-pill{
+    width:min(100%,420px);
+    border-radius:22px;
+    padding:14px 18px;
+  }
+
+  .contact-email{
+    font-size:.88rem;
+  }
+}

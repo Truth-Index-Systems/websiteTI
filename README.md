@@ -48,3 +48,9 @@ npm start
 - Next.js metadata is configured for ICO, SVG, 16px, 32px and Apple touch icons.
 - Web app manifest is configured.
 - No manual favicon integration is required after deployment.
+
+
+## Contact
+- Primary business contact: jaspal.sanghera@truthindexsystems.co.uk
+- Final CTA opens a new email to this address.
+- Footer contact link is included.
